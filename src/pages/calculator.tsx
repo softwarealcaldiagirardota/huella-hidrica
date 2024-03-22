@@ -81,7 +81,14 @@ const WaterFootprintCalculator = ({
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    if (name === "usesPublicTransport" || name === "privateVehicle") {
+      setFormData({ ...formData, [name]: value });
+      return;
+    }
+
+    if (value === "" || /^\d*\.?\d*$/.test(value)) {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = (e: any) => {
@@ -386,7 +393,7 @@ const WaterFootprintCalculator = ({
           />
           <div>
             <label htmlFor="shoesPairsDuration">
-              ¿Cuántos años te suele durar los zapatos?
+              ¿Cuántos años te suelen durar los zapatos?
             </label>
             <input
               required
@@ -413,7 +420,7 @@ const WaterFootprintCalculator = ({
           />
           <div>
             <label htmlFor="shirtsCountDuration">
-              ¿Cuántos años te suele durar las camisas, camisetas, blusas?
+              ¿Cuántos años te suelen durar las camisas, camisetas, blusas?
             </label>
             <input
               required
@@ -440,7 +447,7 @@ const WaterFootprintCalculator = ({
           />
           <div>
             <label htmlFor="pantsCountDuration">
-              ¿Cuántos años te suele durar los pantalones o jeans?
+              ¿Cuántos años te suelen durar los pantalones o jeans?
             </label>
             <input
               required

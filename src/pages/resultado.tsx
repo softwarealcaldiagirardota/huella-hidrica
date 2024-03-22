@@ -1,4 +1,5 @@
 import "./WaterFootprintCalculator.css";
+import logoAlcaldia from "../assets/logo-girardota.png";
 const Resultado = ({
   handleClick,
   data,
@@ -12,18 +13,22 @@ const Resultado = ({
 }) => {
   return (
     <div className="container-resultado">
-      <h1 style={{ marginTop: "50px", fontSize: "1.5rem" }}>
-        Resultados de Consumo de Agua
-      </h1>
+      <img
+        style={{ height: "100px", width: "300px" }}
+        alt="Alcaldia Girardota"
+        src={logoAlcaldia}
+      />
 
-      <div className="card">
+      <h3>Resultado de Consumo de Agua</h3>
+
+      {/* <div className="card">
         <div className="card-title">Litros consumidos por semana </div>
         <div className="card-result">{data.listrosXweek.toFixed(2)} Litros</div>
       </div>
       <div className="card">
         <div className="card-title">Litros consumidos por día </div>
         <div className="card-result">{data.litrosXDay.toFixed(2)} Litros</div>
-      </div>
+      </div> */}
       <div className="card">
         <div className="card-title">Consumo diario en metros cúbicos </div>
         <div className="card-result">{data.m3XDay.toFixed(2)} m³</div>
